@@ -34,8 +34,8 @@ InvalidProjectName= -
 Create New Project
 	Navigate To Create Blank Project Page 	CreateProjectUrl
 	Input Username		UserName
-    Input Password		Password
-    Submit Login Form
+    	Input Password		Password
+    	Submit Login Form
 	Input Project name		ProjectName
 	Submit Create project
 	Validate That Message Is Showing Project 'ProjectName' was successfully created.
@@ -43,7 +43,7 @@ Create New Project
 Create Project From Template 
 	Navigate To Create From Template Page CreateTemplateUrl
 	Input Username		UserName
-    Input Password		Password
+    	Input Password		Password
 	Click Use template -button of UseTemplate
 	Input Project name TemplateName
 	Submit Create project
@@ -52,8 +52,8 @@ Create Project From Template
 Update Template Project Name 
 	Navigate To Projects Page ProjectsUrl
 	Input Username		UserName
-    Input Password		Password
-    Submit Login Form
+    	Input Password		Password
+    	Submit Login Form
 	Click Link TemplateName
 	Click Settings (on the left side of page)
 	Click General (from Settings-dropdown menu)
@@ -85,8 +85,8 @@ Delete Template Project
 Create New Project With Same Name			
 	Navigate To Create Blank Project Page   CreateProjectUrl
 	Input Username		UserName
-    Input Password		Password
-    Submit Login Form
+    	Input Password		Password
+    	Submit Login Form
 	Input Project name		ProjectName
 	Submit Create project
 	Validate That Message Is Showing 'The form contains the following errors:
@@ -97,8 +97,8 @@ Create New Project With Same Name
 Create New Project With Invalid Name
 	Navigate To Create Blank Project Page   CreateProjectUrl
 	Input Username		UserName
-    Input Password		Password
-    Submit Login Form
+    	Input Password		Password
+    	Submit Login Form
 	Input Project name		InvalidProjectName
 	Submit Create project
 	Validate Form Contains Alert 'Name must start with a letter, digit, emoji, or underscore.'
