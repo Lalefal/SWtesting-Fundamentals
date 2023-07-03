@@ -31,8 +31,8 @@ UpdateTitle= issue2
 Create an Issue
 	Navigate To Login Page LoginUrl
 	Input Username		UserName
-    Input Password		Password
-    Submit Login Form
+    	Input Password		Password
+    	Submit Login Form
 	Click Link ProjectName
 	Click Link Issues (on the left side of browser)
 	Click New issue -button (on the middle of the browser)
@@ -44,8 +44,8 @@ Create an Issue
 Update Name Of an Issue
 	Navigate To Login Page LoginUrl
 	Input Username		UserName
-    Input Password		Password
-    Submit Login Form
+    	Input Password		Password
+    	Submit Login Form
 	Click Link ProjectName
 	Click Link Issues (on the left side of browser)
 	Click Link IssueTitle
@@ -58,8 +58,8 @@ Update Name Of an Issue
 Create an Issue With Same Name
 	Navigate To Login Page LoginUrl
 	Input Username		UserName
-    Input Password		Password
-    Submit Login Form
+    	Input Password		Password
+    	Submit Login Form
 	Click Link ProjectName
 	Click Link Issues (on the left side of browser)
 	Click New issue -button (on the right top of browser)
@@ -71,8 +71,8 @@ Create an Issue With Same Name
 Delete Issue
 	Navigate To Login Page LoginUrl
 	Input Username		UserName
-    Input Password		Password
-    Submit Login Form
+    	Input Password		Password
+    	Submit Login Form
 	Click Link ProjectName
 	Click Link Issues (on the left side of browser)
 	Click The Bottom Link UpdateTitle (#1)
