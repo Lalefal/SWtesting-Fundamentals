@@ -1,0 +1,37 @@
+
+### **Test Suit Overview**
+
+### TODO: When you see this `TODO:` text please consider it as the task to perform on that test or bug report file.
+
+
+#*********************** Settings **************************
+
+*** Settings ***
+
+Documentation	Here, you can describe the Test Suit description.
+                Should contain background information, why tests are created, notes about execution environment
+                Do not include too much details about test cases: Duplicate information is waste
+
+Pre Condition 	Runs before each Test Case 
+Post Condition	Runs after each Test Case
+Tags
+
+#*********************** Common Variables *******************
+
+*** Variables ***
+
+# Here, you can define Test Data as a variable 
+
+VARIABLE_NAME =    variable value
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+The name of the test cases should be the name of the functionality or the feature that the test case is covering. 
+This will make the finding of the test case from the set much easier.
+
+Test Case Name
+    Step One
+    Step Two    TestData
+    Verification Steps With Expected Data	   

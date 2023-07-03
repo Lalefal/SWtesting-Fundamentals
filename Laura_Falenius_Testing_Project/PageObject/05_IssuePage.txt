@@ -1,0 +1,83 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+Documentation	Testing the CRUD-functionality of issues page. Test scenario with valid issue titles.
+
+Pre Condition	Open browser (Edge, browser size Large >1200px), Register, Create project
+				Test Cases Must Be Executed In Given Order
+Post Condition	Sign out, Close all browsers
+Tags Create Issue, Update Issue Name, Delete Issue
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+LoginUrl= https://gitlab.com/users/sign_in 
+IssueUrl= https://gitlab.com/dashboard/issues?sort=created_date&state=opened
+UserName= abc
+Password= ***
+ProjectName= Testi1
+IssueTitle= issue1
+UpdateTitle= issue2
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# Positive Test 
+
+Create an Issue
+	Navigate To Login Page LoginUrl
+	Input Username		UserName
+    Input Password		Password
+    Submit Login Form
+	Click Link ProjectName
+	Click Link Issues (on the left side of browser)
+	Click New issue -button (on the middle of the browser)
+	Input Title 	IssueTitle
+	Submit Create issue
+	Validate That Message Is Showing 'Issue created just now by 'UserName''.
+
+
+Update Name Of an Issue
+	Navigate To Login Page LoginUrl
+	Input Username		UserName
+    Input Password		Password
+    Submit Login Form
+	Click Link ProjectName
+	Click Link Issues (on the left side of browser)
+	Click Link IssueTitle
+	Click Edit -button
+	Change IssueTitle To UpdateTitle 
+	Submit Save changes
+	Validate Issue title IssueTitle Changed to UpdateTitle 
+
+
+Create an Issue With Same Name
+	Navigate To Login Page LoginUrl
+	Input Username		UserName
+    Input Password		Password
+    Submit Login Form
+	Click Link ProjectName
+	Click Link Issues (on the left side of browser)
+	Click New issue -button (on the right top of browser)
+	Input Title 	UpdateTitle
+	Submit Create issue
+	Validate That Message Is Showing 'Issue created just now by 'UserName''.
+
+
+Delete Issue
+	Navigate To Login Page LoginUrl
+	Input Username		UserName
+    Input Password		Password
+    Submit Login Form
+	Click Link ProjectName
+	Click Link Issues (on the left side of browser)
+	Click The Bottom Link UpdateTitle (#1)
+	Click The More Options Icon (Ellipsis menu / Dotted Hamburger Icon close to the Edit -button)
+	Click Link Delete issue
+	Click Delete issue -button
+	Validate That Message Is Showing 'The issue was successfully deleted.'
+

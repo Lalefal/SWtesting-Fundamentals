@@ -1,0 +1,120 @@
+
+### **Registration functionality Test Suite Overview**
+
+#******************** Settings ************************
+
+*** Settings ***
+
+Documentation	Testing the user registration functionality. User registration test scenario with valid and invalid credentials.
+
+Pre Condition	Open browser (Edge, browser size Large >1200px)
+Post Condition	Sign out, Close all browsers
+Tags	Registration, Sign up, TS-1-Registration 
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+SignupUrl = https://gitlab.com/users/sign_up
+FirstName= Olli
+LastName= Orava
+UserName= abc
+Email= abc@cba.com			
+Password= ***
+
+VerificationCode= from email
+Role= Other
+WhoUsing= My company or team
+WhatToDo= Join a project
+
+Invalid_Username= olli??
+Invalid_Email= 	olli.orava.gmail.com
+Invalid_Password= testi
+Empty= 
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# Positive Test
+
+Valid Username and Password
+	Navigate To Registration Page  SignupUrl
+	Input First name 	FirstName
+	Input Last name		LastName
+	Input Username		UserName
+	Input Email 		Email
+	Input Password		Password
+	Submit Registration Form
+	Verify Page Is Verification Page
+
+	Check VerificationCode From Your Email
+	Input VerificationCode
+	Submit Verification
+	Verify Page Contains Info '...' (I failed to copy that text :)
+	Verify Page Changes To Welcome Page In Few Seconds	
+
+	Select Role Role
+	Select Who will be using GitLab? WhoUsing
+	Select What would you like to do? WhatToDo
+	Submit Continue
+	Verify Page Is Welcome to GitLab Page
+
+
+# Negative Test
+
+Invalid Username
+	Navigate To Registration Page  SignupUrl
+	Input First name 	FirstName
+	Input Last name		LastName
+	Input Username		Invalid_Username
+	Input Email 		Email
+	Input Password		Password
+	Submit Registration Form
+	Verify Form Contains Alert 'Please create a username with only alphanumeric characters.'
+
+
+Invalid Email
+	Navigate To Registration Page  SignupUrl
+	Input First name	FirstName
+	Input Last name 	LastName
+	Input Username  	UserName
+	Input Email  		Invalid_Email
+	Input Password  	Password
+	Submit Registration Form
+	Verify Form Contains Alert 'Please provide a valid email address.'
+
+
+Empty Password
+	Navigate To Registration Page  SignupUrl
+	Input First name	FirstName
+	Input Last name 	LastName
+	Input Username  	UserName
+	Input Email  		Email
+	Input Password  	Empty
+	Submit Registration Form
+	Verify Form Contains Alert 'Minimum length is 8 characters.'
+
+
+Invalid Password
+	Navigate To Registration Page  SignupUrl
+	Input First name	FirstName
+	Input Last name 	LastName
+	Input Username  	UserName
+	Input Email  		Email
+	Input Password  	Password
+	Submit Registration Form
+	Verify Form Contains Alert 'Minimum length is 8 characters.'
+
+
+Register Without reCAPTCHA  
+	Instead of reCAPTCHA, there is an email verification.		
+
+
+
+
+Testing Comments
+	Tester Name
+	Executed Date
+	Test Results
+

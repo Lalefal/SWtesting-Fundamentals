@@ -1,0 +1,104 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+Documentation	Testing the CRUD-functionality of project page. Test scenario with valid and invalid project names.
+
+Pre Condition	Open Browser (Edge, browser size Large >1200px), Register
+				Test Cases Must Be Executed In Given Order
+Post Condition	Sign out, Close all browsers
+Tags 			Create Project, Update Project Name, Delete Project
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+CreateProjectUrl= https://gitlab.com/projects/new#blank_project
+CreateTemplateUrl= https://gitlab.com/projects/new#create_from_template
+ProjectsUrl= https://gitlab.com/dashboard/projects
+UserName= abc
+Password= ***
+ProjectName= Testi1
+UseTemplate= NodeJS Express
+TemplateName= Testi2
+UpdateName= Testi3
+InvalidProjectName= - 
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# Positive Test 
+
+Create New Project
+	Navigate To Create Blank Project Page 	CreateProjectUrl
+	Input Username		UserName
+    Input Password		Password
+    Submit Login Form
+	Input Project name		ProjectName
+	Submit Create project
+	Validate That Message Is Showing Project 'ProjectName' was successfully created.
+
+Create Project From Template 
+	Navigate To Create From Template Page CreateTemplateUrl
+	Input Username		UserName
+    Input Password		Password
+	Click Use template -button of UseTemplate
+	Input Project name TemplateName
+	Submit Create project
+	Validate That Message Is Showing 'The project was successfully imported.'
+
+Update Template Project Name 
+	Navigate To Projects Page ProjectsUrl
+	Input Username		UserName
+    Input Password		Password
+    Submit Login Form
+	Click Link TemplateName
+	Click Settings (on the left side of page)
+	Click General (from Settings-dropdown menu)
+	Clear Previous Project name		TemplateName
+	Input Project name 		UpdateName	
+	Submit Save changes
+	Validate That Message Is Showing 'Project 'UpdateName' was successfully updated.'
+
+Delete Template Project
+	Navigate To Projects Page ProjectsUrl
+	Input Username		UserName
+    Input Password		Password
+    Submit Login Form
+	Click Link UpdateName
+	Click Settings (on the left side of page)
+	Click General (from Settings-dropdown menu)
+	Scroll Down To The Bottom Of The Page
+	Click Advanced
+	Scroll Down To The Bottom Of The Page
+	Click Delete project
+	Copy Text Below The Text 'Enter the following to confirm:'
+	Paste Copied Text Into Input Field
+	Submit Yes, delete project
+	Validate That Message Is Showing 'Project 'UpdateName' is in the process of being deleted.'
+
+
+# Negative Test 
+
+Create New Project With Same Name			
+	Navigate To Create Blank Project Page   CreateProjectUrl
+	Input Username		UserName
+    Input Password		Password
+    Submit Login Form
+	Input Project name		ProjectName
+	Submit Create project
+	Validate That Message Is Showing 'The form contains the following errors:
+										Project namespace name has already been taken
+										Name has already been taken
+										Path has already been taken.'
+	
+Create New Project With Invalid Name
+	Navigate To Create Blank Project Page   CreateProjectUrl
+	Input Username		UserName
+    Input Password		Password
+    Submit Login Form
+	Input Project name		InvalidProjectName
+	Submit Create project
+	Validate Form Contains Alert 'Name must start with a letter, digit, emoji, or underscore.'
