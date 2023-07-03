@@ -46,8 +46,7 @@ from inside multiple classes without Id or name:
 
 ## Possible fixes
 
-Couldn't get the line of the code from Developers Tools / Source Code, so here is
-a screenshot of site's HTML, bug can be found on the bottom of the picture:
+Couldn't get the line of the code from Developers Tools / Source Code, so here is a screenshot of site's HTML, bug can be found on the bottom of the picture:
 
 
 ![Bug location](sijainti.png)
