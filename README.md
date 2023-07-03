@@ -1,3 +1,3 @@
-# SWtesting
+# Testing Project
 
 Laura Falenius
